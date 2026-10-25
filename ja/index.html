@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja" data-config="locales/ja.js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>平面クエット流れの抗力計算機 · 単位換算と公式 | NaNa Lab</title><meta name="description" content="平行平板間の線形速度分布から、動く平板の片面に働く粘性抗力の大きさを計算します。 入力単位を選択し、指定された条件内で 1 つの値を計算します。">
+<link rel="canonical" href="https://nanalab.kr/eng-couette-force/ja/"><meta name="robots" content="index,follow"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><meta property="og:title" content="平面クエット流れの抗力計算機"><meta property="og:description" content="平行平板間の線形速度分布から、動く平板の片面に働く粘性抗力の大きさを計算します。 入力単位を選択し、指定された条件内で 1 つの値を計算します。"><meta property="og:url" content="https://nanalab.kr/eng-couette-force/ja/"><meta property="og:image" content="https://nanalab.kr/eng-couette-force/ja/og.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="../icon.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "平面クエット流れの抗力計算機", "url": "https://nanalab.kr/eng-couette-force/ja/", "description": "平行平板間の線形速度分布から、動く平板の片面に働く粘性抗力の大きさを計算します。 入力単位を選択し、指定された条件内で 1 つの値を計算します。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "NaNa Lab", "url": "https://nanalab.kr/"}}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9767176956440077"
+        crossorigin="anonymous"></script>
+<script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })
+            (window, document, 'script', 'dataLayer', 'GTM-NV2WWQXB');
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZYSF0173P"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2ZYSF0173P');
+    </script>
+<link rel="alternate" hreflang="ko" href="https://nanalab.kr/eng-couette-force/"><link rel="alternate" hreflang="en" href="https://nanalab.kr/eng-couette-force/en/"><link rel="alternate" hreflang="es" href="https://nanalab.kr/eng-couette-force/es/"><link rel="alternate" hreflang="zh-CN" href="https://nanalab.kr/eng-couette-force/zh/"><link rel="alternate" hreflang="ja" href="https://nanalab.kr/eng-couette-force/ja/"><link rel="alternate" hreflang="de" href="https://nanalab.kr/eng-couette-force/de/"><link rel="alternate" hreflang="x-default" href="https://nanalab.kr/eng-couette-force/"><meta name="twitter:title" content="平面クエット流れの抗力計算機"><meta name="twitter:description" content="平行平板間の線形速度分布から、動く平板の片面に働く粘性抗力の大きさを計算します。 入力単位を選択し、指定された条件内で 1 つの値を計算します。"><meta name="twitter:image" content="https://nanalab.kr/eng-couette-force/ja/og.png"></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NV2WWQXB" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+<a class="skip" href="#calculator">計算フォームへ移動</a>
+<header><a class="brand" href="https://nanalab.kr/">NaNa Lab <span aria-hidden="true">/</span> Engineering</a><span class="edition">E137 · 流体力学</span></header><nav class="language-links" aria-label="言語"><a data-language="ko" lang="ko" hreflang="ko" href=".././">한국어</a><a data-language="en" lang="en" hreflang="en" href="../en/">English</a><a data-language="es" lang="es" hreflang="es" href="../es/">Español</a><a data-language="zh" lang="zh-CN" hreflang="zh-CN" href="../zh/">简体中文</a><a data-language="ja" lang="ja" hreflang="ja" href="../ja/" aria-current="page">日本語</a><a data-language="de" lang="de" hreflang="de" href="../de/">Deutsch</a></nav>
+<main><p class="eyebrow">ひとつの公式、ひとつの答え</p><h1>平面クエット流れの抗力計算機</h1><p class="intro">平行平板間の線形速度分布から、動く平板の片面に働く粘性抗力の大きさを計算します。 入力単位を選択し、指定された条件内で 1 つの値を計算します。</p>
+<div class="workspace"><section class="panel"><h2>入力値</h2><form id="calculator" novalidate><div class="row"><label for="field-mu">粘性係数 μ</label><div class="input-pair"><input id="field-mu" name="mu" type="text" inputmode="decimal" value="0.10000000000000001" required autocomplete="off" spellcheck="false" aria-describedby="note-mu"><select id="unit-mu" name="unit-mu" aria-label="粘性係数 μ 単位"><option value="Pas" selected>Pa·s</option><option value="mPas">mPa·s</option><option value="cP">cP</option></select></div><p class="field-note" id="note-mu">SI 単位への換算後に 0 より大きい値</p></div><div class="row"><label for="field-area">平板片面の接液面積</label><div class="input-pair"><input id="field-area" name="area" type="text" inputmode="decimal" value="0.20000000000000001" required autocomplete="off" spellcheck="false" aria-describedby="note-area"><select id="unit-area" name="unit-area" aria-label="平板片面の接液面積 単位"><option value="m2" selected>m²</option><option value="cm2">cm²</option><option value="mm2">mm²</option></select></div><p class="field-note" id="note-area">SI 単位への換算後に 0 より大きい値</p></div><div class="row"><label for="field-v">静止平板に対する移動平板の速度</label><div class="input-pair"><input id="field-v" name="v" type="text" inputmode="decimal" value="1" required autocomplete="off" spellcheck="false" aria-describedby="note-v"><select id="unit-v" name="unit-v" aria-label="静止平板に対する移動平板の速度 単位"><option value="ms" selected>m/s</option><option value="kms">km/s</option><option value="kmh">km/h</option><option value="cms">cm/s</option></select></div><p class="field-note" id="note-v">0 以上</p></div><div class="row"><label for="field-gap">平板間の垂直距離</label><div class="input-pair"><input id="field-gap" name="gap" type="text" inputmode="decimal" value="1" required autocomplete="off" spellcheck="false" aria-describedby="note-gap"><select id="unit-gap" name="unit-gap" aria-label="平板間の垂直距離 単位"><option value="m">m</option><option value="km">km</option><option value="cm">cm</option><option value="mm" selected>mm</option><option value="um">μm</option><option value="nm">nm</option><option value="pm">pm</option><option value="AU">AU</option><option value="pc">pc</option></select></div><p class="field-note" id="note-gap">SI 単位への換算後に 0 より大きい値</p></div><label class="condition"><input type="checkbox" name="conditions" id="conditions">圧力勾配のない定常層流と、粘性係数 μ を確認しました。</label><div class="actions"><button class="primary" type="submit">計算する</button><button type="button" id="example">例を入力</button><button type="button" id="reset">クリア</button></div></form><p class="local-note">計算はこのブラウザー内で行います。1.2e-3 などの指数表記に対応しています。桁区切り文字は使わないでください。</p><noscript>計算には JavaScript が必要です。無効でも公式と適用条件は読めます。</noscript></section>
+<section id="result" class="panel output-panel" aria-labelledby="result-heading"><h2 id="result-heading">計算結果</h2><p class="result-caption">移動平板に働く粘性抗力の大きさ</p><output id="result-value" class="number" form="calculator" aria-live="polite">—</output><span id="output-unit-label" class="result-unit"></span><div id="output-control"><label for="output-unit">結果の表示単位</label><select id="output-unit"><option value="N" selected>N</option><option value="kN">kN</option></select></div><p id="status" class="status" role="status">値を入力し「計算する」を押してください。</p><button type="button" id="copy-result" class="copy">結果をコピー</button><div class="formula"><span>公式</span><p>F = μAV / h</p></div></section></div>
+<section class="reference"><h2>適用条件</h2><p>一方の平板が静止し、他方が一定速度で動く定常層流の非圧縮性ニュートン流体を仮定し、粘性係数は一定とします。圧力勾配、壁面滑り、端部の効果は考慮しません。結果は平板の運動に逆らう抗力の大きさです。</p><p class="small">表示値は浮動小数点数による近似値です。設計安全率や、入力されていない誤差要因は計算しません。</p><details><summary>公式の出典と制作情報</summary><ul><li><a href="https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/mit8_01scs22_chapter28.pdf" target="_blank" rel="noopener noreferrer">MIT: Couette flow and plate shear</a></li></ul><p class="small">NaNa Lab はコード、説明、アイコン、プレビュー画像を作成しました。リンクされた参考文献のテキスト、図、コードは複製されていません。</p><p class="small">物理定数：<a href="https://physics.nist.gov/cuu/Constants/">NIST / CODATA 2022</a>。 μ₀ および ε₀ の値は、測定された推奨値であり、正確な定義定数ではありません。値と精度の注記は、<a href="../SOURCES.md">出典記録</a>。</p><p class="small">このサイトには、Google の広告と分析、および Cloudflare 分析が含まれています。</p></details></section></main>
+<footer>© 2026 NaNa Lab · 独自制作の単一値工学計算ツール · <a href="https://github.com/NaNaCompany/eng-couette-force">ソースコード</a></footer><a class="more-apps" href="https://nanalab.kr/apps/">More Apps</a>
+<script type="module" src="../app.js"></script>
+<script>
+(function () {
+  function ensureBeacon() {
+    // Cloudflare may inject its beacon at the edge. Reuse that script when present.
+    if (document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')) return;
+    var beacon = document.createElement('script');
+    beacon.defer = true;
+    beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    beacon.setAttribute('data-cf-beacon', JSON.stringify({token: '9f3423bb0d034d91bbe1a12afeff2429'}));
+    document.head.appendChild(beacon);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ensureBeacon, {once: true});
+  else ensureBeacon();
+})();
+</script>
+</body></html>

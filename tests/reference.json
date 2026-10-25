@@ -1,0 +1,53 @@
+{
+  "id": "E137",
+  "value": 20.0,
+  "reference70": "2e+1",
+  "method": "Independent Python Decimal with 80-digit working precision, reported to 70 significant digits; direct physical formula. E140 uses 260-step dimensional-wavenumber bisection, independent of the runtime dimensionless solver.",
+  "cases": [
+    {
+      "name": "stationary plate",
+      "values": {
+        "v": 0
+      },
+      "expected": 0.0,
+      "reference70": "0e+1"
+    },
+    {
+      "name": "half gap doubles force",
+      "values": {
+        "gap": 0.0005
+      },
+      "expected": 40.0,
+      "reference70": "4e+1"
+    },
+    {
+      "name": "alternate viscosity and plate",
+      "values": {
+        "mu": 0.001,
+        "area": 2,
+        "v": 0.5,
+        "gap": 0.002
+      },
+      "expected": 0.5,
+      "reference70": "0.5"
+    },
+    {
+      "name": "balanced extreme product",
+      "values": {
+        "mu": 1e-200,
+        "area": 1e+200,
+        "v": 1e+200,
+        "gap": 1e+200
+      },
+      "expected": 1.0,
+      "reference70": "1"
+    },
+    {
+      "name": "zero gap rejected",
+      "values": {
+        "gap": 0
+      },
+      "throws": true
+    }
+  ]
+}
